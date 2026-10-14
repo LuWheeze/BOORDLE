@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dw4oe5n01hdff"]
+
+[node name="AttemptEntry" type="HBoxContainer" unique_id=1971359063]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="BinAttempt" type="HBoxContainer" parent="." unique_id=1613098732]
+layout_mode = 2
+
+[node name="Filler" type="Control" parent="." unique_id=113571011]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1673989860]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=1692660252]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect/HBoxContainer" unique_id=1407266373]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/HBoxContainer" unique_id=1157779197]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect" unique_id=1127908391]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
