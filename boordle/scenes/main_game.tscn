@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bkb4ftq66blbb"]
 
+[ext_resource type="Script" uid="uid://pthaeegqlnjs" path="res://scenes/main_game.gd" id="1_d2op2"]
 [ext_resource type="Texture2D" uid="uid://cod7n2ryhhcb0" path="res://icon.svg" id="1_s3esy"]
 [ext_resource type="PackedScene" uid="uid://cyn45jusl4gx1" path="res://scenes/guess_box.tscn" id="2_72e8q"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_d2op2")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1163264008]
 custom_minimum_size = Vector2(1000, 600)
