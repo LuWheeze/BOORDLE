@@ -53,6 +53,7 @@ layout_mode = 2
 size_flags_vertical = 0
 
 [node name="GuessBoxes" type="HBoxContainer" parent="MarginContainer/TerminalBG/MarginContainer" unique_id=334469781]
+unique_name_in_owner = true
 propagate_maximum_size = false
 layout_mode = 2
 size_flags_vertical = 8

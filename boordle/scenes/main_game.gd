@@ -3,8 +3,10 @@ extends Control
 
 
 @onready var attempt_boxes: VBoxContainer = %AttemptBoxes
+@onready var guess_boxes: HBoxContainer = %GuessBoxes
 
 var guess_array: Array[int]
+var user_guess: Array[Node]
 var ans_array: Array[int]
 var date_dict := Time.get_date_dict_from_system()
 var attempts_made := 0
@@ -14,6 +16,8 @@ static var attempt_entry := preload("res://scenes/attempt_entry.tscn")
 
 func _ready() -> void:
 	set_answer()
+	
+	user_guess = guess_boxes.get_children()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") and guess_array.size() == 6:
@@ -25,10 +29,8 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("input_bin"):
 		if not set_guess(event):
 			print(guess_array)
-	# DEBUG TEST
-	elif event.is_action_pressed("debug"):
-		for time_unit in date_dict:
-			print("[Key, Value] : %s, %d" % [time_unit, date_dict[time_unit]])
+	elif event.is_action_pressed("delete"):
+		delete_guess()
 
 func set_answer() -> void:
 	var deci_ans := 0
@@ -51,6 +53,9 @@ func set_guess(key: InputEventKey) -> bool:
 		var append_bin = key.as_text()
 		
 		guess_array.append(int(append_bin))
+		var idx = guess_array.size() - 1
+		user_guess[idx].binary.text = str(guess_array.back())
+		
 		return true
 		
 	else: return false
@@ -62,6 +67,10 @@ func check_attempt() -> int:
 		if guess_array[i] == ans_array[i]: matches += 1
 	
 	return matches
+
+func delete_guess() -> void:
+	guess_array.pop_back();
+	user_guess[guess_array.size()].binary.text = ""
 
 func display_attempt(matches: int) -> void:
 	var attempt = attempt_entry.instantiate().with_data(guess_array, matches)
@@ -75,7 +84,7 @@ func fail(matches: int) -> void:
 		print("YOU SUCKK!")
 		# add more end game stuff
 	
-	guess_array.clear()
+	clear_guess()
 
 func success(matches: int) -> void:
 	attempts_made += 1
@@ -83,4 +92,10 @@ func success(matches: int) -> void:
 	display_attempt(matches)
 	
 	# add more end game stuff
+	clear_guess()
+
+func clear_guess() -> void:
 	guess_array.clear()
+	
+	for i in range(user_guess.size()):
+		user_guess[i].binary.text = ""
