@@ -1,31 +1,86 @@
 [gd_scene format=3 uid="uid://dw4oe5n01hdff"]
 
+[ext_resource type="Script" uid="uid://3hi2eae1nwu1" path="res://scenes/attempt_entry.gd" id="1_7lqhd"]
+[ext_resource type="PackedScene" uid="uid://cyn45jusl4gx1" path="res://scenes/guess_box.tscn" id="1_8otlf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8otlf"]
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0.78431374, 0.13725491, 1)
+
 [node name="AttemptEntry" type="HBoxContainer" unique_id=1971359063]
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 80.0
 grow_horizontal = 2
+script = ExtResource("1_7lqhd")
 
 [node name="BinAttempt" type="HBoxContainer" parent="." unique_id=1613098732]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Filler" type="Control" parent="." unique_id=113571011]
+[node name="GuessBox1" parent="BinAttempt" unique_id=180047145 instance=ExtResource("1_8otlf")]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1673989860]
+[node name="GuessBox2" parent="BinAttempt" unique_id=2003474124 instance=ExtResource("1_8otlf")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=1692660252]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="ColorRect/HBoxContainer" unique_id=1407266373]
+[node name="GuessBox3" parent="BinAttempt" unique_id=1066949837 instance=ExtResource("1_8otlf")]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect/HBoxContainer" unique_id=1157779197]
+[node name="GuessBox4" parent="BinAttempt" unique_id=1410377611 instance=ExtResource("1_8otlf")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ColorRect/HBoxContainer/ColorRect" unique_id=1127908391]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="GuessBox5" parent="BinAttempt" unique_id=722011443 instance=ExtResource("1_8otlf")]
+layout_mode = 2
+
+[node name="GuessBox6" parent="BinAttempt" unique_id=1090487931 instance=ExtResource("1_8otlf")]
+layout_mode = 2
+
+[node name="MatchBox" type="ColorRect" parent="." unique_id=1673989860]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MatchBox" unique_id=1692660252]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MatchBox/HBoxContainer" unique_id=1407266373]
+layout_mode = 2
+text = "match"
+label_settings = SubResource("LabelSettings_8otlf")
+
+[node name="ColorRect" type="ColorRect" parent="MatchBox/HBoxContainer" unique_id=1157779197]
+custom_minimum_size = Vector2(41.235, 62.33)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="MatchNum" type="Label" parent="MatchBox/HBoxContainer/ColorRect" unique_id=1127908391]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+horizontal_alignment = 1

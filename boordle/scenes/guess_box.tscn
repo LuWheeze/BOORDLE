@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cyn45jusl4gx1"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_npgl0"]
-font_size = 48
+[ext_resource type="Script" uid="uid://twbxpyvkx5o5" path="res://scenes/guess_box.gd" id="1_gfb63"]
+[ext_resource type="LabelSettings" uid="uid://bafdpnl7p5xjb" path="res://rsc/number_format.tres" id="1_m2a7x"]
 
 [node name="GuessBox" type="ColorRect" unique_id=180047145]
 custom_minimum_size = Vector2(50, 80)
@@ -14,8 +14,10 @@ offset_bottom = 20.295998
 size_flags_horizontal = 0
 size_flags_vertical = 0
 color = Color(0, 0, 0, 1)
+script = ExtResource("1_gfb63")
 
 [node name="Binary" type="Label" parent="." unique_id=97235989]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,5 +31,5 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "1"
-label_settings = SubResource("LabelSettings_npgl0")
+label_settings = ExtResource("1_m2a7x")
 horizontal_alignment = 1
